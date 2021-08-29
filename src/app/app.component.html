@@ -1,6 +1,8 @@
-<div fxLayout="column" fxFill style="background-color: #ccc">
-  <div fxLayout="column" style="background-color: aqua">
+<div fxLayout="column" class="mat-app-background" fxFill>
+  <div fxFlex="7">
     <app-header></app-header>
   </div>
-  <router-outlet></router-outlet>
+  <div fxFlex fxFlexFill>
+    <router-outlet></router-outlet>
+  </div>
 </div>
