@@ -1,5 +1,4 @@
 import { Component, HostBinding, OnDestroy} from '@angular/core';
-import { Subscription } from "rxjs";
 import { ThemeService } from "./shared/service/theme.service";
 
 @Component({
@@ -13,17 +12,15 @@ export class AppComponent implements OnDestroy {
 
   @HostBinding('class')
   themeMode: String = "";
-  private themingSubscription: Subscription;
-
 
   constructor(private themingService: ThemeService) {
-    this.themingSubscription = this.themingService.theme.subscribe((theme: String) => {
+    this.themingService.theme.subscribe((theme: String) => {
       this.themeMode = theme;
     });
   }
 
   ngOnDestroy(): void {
-    this.themingSubscription.unsubscribe();
+    this.themingService.theme.unsubscribe();
   }
 
 }

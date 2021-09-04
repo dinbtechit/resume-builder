@@ -1,5 +1,73 @@
-<div fxFlexFill fxLayoutAlign="center center">
-<mat-card>
-asdfasf
-</mat-card>
+<div fxFlexFill fxLayout="column" class="p-3">
+  <h1>Describe you</h1>
+  <div fxLayout="row">
+    <div fxFlex="30" fxFlex.gt-md="20"  fxLayout="column" fxLayoutAlign="start center">
+      <app-profile-pic class="mt-2"></app-profile-pic>
+    </div>
+    <div fxFlex="70" fxFlex.gt-md="80" fxLayout="column">
+      <div fxLayout="row">
+        <mat-form-field appearance="fill" class="ps-2 w-50">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="ps-2 w-50">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+        <mat-form-field appearance="fill" class="ps-2 w-100">
+          <mat-label>Current Title</mat-label>
+          <input matInput type="text"
+                 placeholder="Sr. Software Engineer"
+                 required>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row">
+        <mat-form-field appearance="fill" class="ps-2 w-100">
+          <mat-label>Sub Title</mat-label>
+          <input matInput type="text"
+                 placeholder="(UX Designer/ Full Stack Developer)">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="ps-2 w-100">
+          <mat-label>Years of Experience</mat-label>
+          <input matInput type="text"
+                 placeholder="Over 11 Years of Experience">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <h1>Contact</h1>
+  <div fxLayout="row">
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>Contact Email</mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>Phone Number</mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>Country</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>PostalCode/Zipcode</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>City</mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-label>Province/State</mat-label>
+      <input matInput type="text" required>
+    </mat-form-field>
+  </div>
+
+  <mat-divider></mat-divider>
 </div>
