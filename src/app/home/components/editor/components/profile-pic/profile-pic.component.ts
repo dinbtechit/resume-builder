@@ -19,10 +19,10 @@ export class ProfilePicComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]); // read file as data url
     reader.onload = (event) => { // called once readAsDataURL is completed
-      if(event.target!.result &&  typeof event.target!.result == 'string'){
-        this.url = event.target!.result;
+      if(event.target?.result &&  typeof event.target?.result == 'string'){
+        this.url = event.target?.result || "";
       } else {
-        console.error(`Invalid Image File: ${event.target!.result}`);
+        console.error(`Invalid Image File: ${event.target?.result}`);
       }
     };
   }
