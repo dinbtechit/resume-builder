@@ -1,6 +1,11 @@
 # Resume Builder
 
-This app lets you build your resume quickly yet has the potential to unleash your creativity to make it unique.
+This app lets users build their resume quickly yet has the potential to unleash your creativity to make it unique.
+
+# Change Log:
+
+**ResumeBuilder - 0.0.1**
+- Initial Version
 
 
 # Additional Details
