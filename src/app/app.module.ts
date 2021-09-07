@@ -13,14 +13,14 @@ import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatDividerModule } from "@angular/material/divider";
 import { ProfilePicComponent } from './home/components/editor/components/profile-pic/profile-pic.component';
 import { MatButtonModule } from "@angular/material/button";
-
+import { HttpClientJsonpModule, HttpClientModule, JsonpClientBackend } from "@angular/common/http";
 
 
 @NgModule({
@@ -32,22 +32,25 @@ import { MatButtonModule } from "@angular/material/button";
     HomeComponent,
     ProfilePicComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FlexLayoutModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatSlideToggleModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatChipsModule,
-        MatDividerModule,
-        MatButtonModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
+    MatDividerModule,
+    MatButtonModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

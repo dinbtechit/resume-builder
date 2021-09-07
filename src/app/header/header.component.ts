@@ -15,17 +15,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.themeToggle.setValue(this.themeService.theme.value == 'dark-theme');
+    this.themeToggle.setValue(this.themeService.defaultOSTheme.value == 'dark-theme');
     this.themeToggle.valueChanges.subscribe((darkMode) => {
-      this.changeTheme(darkMode ? 'dark-theme' : 'light-theme');
+      this.themeService.userSelectedTheme.next(darkMode ? 'dark-theme' : 'light-theme');
     });
   }
 
-  changeTheme(theme: string) {
-    this.themeService.theme.next(theme);
-  }
-
   ngOnDestroy(): void {
-    this.themeService.theme.unsubscribe();
+    this.themeService.defaultOSTheme.unsubscribe();
   }
 }

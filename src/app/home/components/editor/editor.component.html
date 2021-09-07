@@ -40,34 +40,28 @@
   <h1>Contact</h1>
   <div fxLayout="row">
     <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-icon matPrefix>email</mat-icon>
       <mat-label>Contact Email</mat-label>
       <input matInput type="text" required>
     </mat-form-field>
     <mat-form-field appearance="fill" class="ps-2 w-50">
+      <mat-icon matPrefix>phone_iphone</mat-icon>
       <mat-label>Phone Number</mat-label>
       <input matInput type="text" required>
     </mat-form-field>
   </div>
   <div fxLayout="row">
-    <mat-form-field appearance="fill" class="ps-2 w-50">
-      <mat-label>Country</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="ps-2 w-50">
-      <mat-label>PostalCode/Zipcode</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
-  </div>
-  <div fxLayout="row">
-    <mat-form-field appearance="fill" class="ps-2 w-50">
-      <mat-label>City</mat-label>
-      <input matInput type="text" required>
-    </mat-form-field>
-    <mat-form-field appearance="fill" class="ps-2 w-50">
-      <mat-label>Province/State</mat-label>
-      <input matInput type="text" required>
+    <mat-form-field appearance="fill" class="ps-2 w-100">
+      <mat-icon matPrefix>location_on</mat-icon>
+      <mat-label>Location</mat-label>
+      <input matInput
+             [(ngModel)]="locationDetails"
+             placeholder="City, State/Province, Country">
+      <button mat-icon-button
+              (click)="locationReset()"
+              color="green" matSuffix>
+        <mat-icon>my_location</mat-icon></button>
     </mat-form-field>
   </div>
-
   <mat-divider></mat-divider>
 </div>

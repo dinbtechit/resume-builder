@@ -21,14 +21,20 @@ export class ProfilePicComponent implements OnInit {
 
   uploadImage(event: any): void {
     const reader = new FileReader();
-    reader.readAsDataURL(event.target.files[0]); // read file as data url
-    reader.onload = (event) => { // called once readAsDataURL is completed
-      if (event.target?.result && typeof event.target?.result == 'string') {
-        this.url = event.target?.result || "";
-      } else {
-        console.error(`Invalid Image File: ${event.target?.result}`);
-      }
+    reader.onload = (event: ProgressEvent<FileReader>) => {
+      // called once readAsDataURL is completed
+      this.url = event.target?.result?.toString() || "";
     };
+
+    reader.onerror = (event: ProgressEvent<FileReader>) => {
+      console.error(`Invalid Image File: ${event.target?.result}`);
+    };
+
+    if (event.target?.files[0]) {
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+    } else {
+      console.error(`Invalid Image File: ${event.target}`);
+    }
   }
 
   public delete(): void {

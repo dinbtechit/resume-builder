@@ -1,5 +1,8 @@
-import { Component, HostBinding, OnDestroy} from '@angular/core';
+import { Component, HostBinding, OnDestroy } from '@angular/core';
 import { ThemeService } from "./shared/service/theme.service";
+import { HeaderComponent } from "./header/header.component";
+import { combineLatest, forkJoin, Observable } from "rxjs";
+import { take } from "rxjs/operators";
 
 @Component({
   selector: 'app-root',
@@ -11,16 +14,20 @@ export class AppComponent implements OnDestroy {
   title = 'Resume Builder';
 
   @HostBinding('class')
-  themeMode: String = "";
+  themeMode: string = "";
 
   constructor(private themingService: ThemeService) {
-    this.themingService.theme.subscribe((theme: String) => {
-      this.themeMode = theme;
+    combineLatest([this.themingService.defaultOSTheme, this.themingService.userSelectedTheme])
+      .subscribe(([osTheme, userSelectedTheme]) => {
+      console.log(`OS Theme : ${osTheme}`);
+      console.log(`user Selected Theme: ${userSelectedTheme}`);
+      this.themeMode = userSelectedTheme? userSelectedTheme :osTheme;
     });
   }
 
   ngOnDestroy(): void {
-    this.themingService.theme.unsubscribe();
+    this.themingService.defaultOSTheme.unsubscribe();
+    this.themingService.userSelectedTheme.unsubscribe();
   }
 
 }
