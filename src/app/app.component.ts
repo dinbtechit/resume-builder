@@ -19,10 +19,10 @@ export class AppComponent implements OnDestroy {
   constructor(private themingService: ThemeService) {
     combineLatest([this.themingService.defaultOSTheme, this.themingService.userSelectedTheme])
       .subscribe(([osTheme, userSelectedTheme]) => {
-      console.log(`OS Theme : ${osTheme}`);
-      console.log(`user Selected Theme: ${userSelectedTheme}`);
-      this.themeMode = userSelectedTheme? userSelectedTheme :osTheme;
-    });
+        console.log(`OS Theme : ${osTheme}`);
+        console.log(`user Selected Theme: ${userSelectedTheme}`);
+        this.themeMode = userSelectedTheme ? userSelectedTheme : osTheme;
+      });
   }
 
   ngOnDestroy(): void {

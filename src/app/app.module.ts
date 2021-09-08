@@ -20,8 +20,8 @@ import { MatChipsModule } from "@angular/material/chips";
 import { MatDividerModule } from "@angular/material/divider";
 import { ProfilePicComponent } from './home/components/editor/components/profile-pic/profile-pic.component';
 import { MatButtonModule } from "@angular/material/button";
-import { HttpClientJsonpModule, HttpClientModule, JsonpClientBackend } from "@angular/common/http";
-
+import { HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+import { JsonpCacheInterceptorModule } from "./shared/http-cache-config/jsonp-cache-interceptor.module";
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { HttpClientJsonpModule, HttpClientModule, JsonpClientBackend } from "@an
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    JsonpCacheInterceptorModule,
     HttpClientModule,
     HttpClientJsonpModule,
     FlexLayoutModule,

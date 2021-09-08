@@ -7,7 +7,7 @@ import { FormControl } from "@angular/forms";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
 
   themeToggle = new FormControl(false);
 
@@ -15,13 +15,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.themeToggle.setValue(this.themeService.defaultOSTheme.value == 'dark-theme');
+    this.themeToggle.setValue(this.themeService.isDarkModeSelected());
     this.themeToggle.valueChanges.subscribe((darkMode) => {
-      this.themeService.userSelectedTheme.next(darkMode ? 'dark-theme' : 'light-theme');
+      this.themeService.setUserSelectedTheme(darkMode);
     });
-  }
-
-  ngOnDestroy(): void {
-    this.themeService.defaultOSTheme.unsubscribe();
   }
 }

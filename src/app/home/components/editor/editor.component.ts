@@ -19,6 +19,8 @@ export class EditorComponent implements OnInit {
         this.geoLocation = `${res?.city}, ${res?.regionName}, ${res?.country}`;
         this.locationDetails = this.geoLocation;
       }
+    }, error => {
+      console.error("Error retrieving location.");
     });
   }
 

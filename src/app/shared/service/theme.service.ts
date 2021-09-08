@@ -8,9 +8,9 @@ export class ThemeService {
 
   private _themes = ["dark-theme", "light-theme"];
   defaultOSTheme = new BehaviorSubject("dark-theme");
-  userSelectedTheme: BehaviorSubject<string> = new BehaviorSubject("");
+  userSelectedTheme: BehaviorSubject<string> = new BehaviorSubject(localStorage.getItem("userSelectedTheme") || "");
 
-    constructor(private ref: ApplicationRef) {
+  constructor(private ref: ApplicationRef) {
     // initially trigger dark mode if preference is set to dark mode on system
     const darkModeOn =
       window.matchMedia &&
@@ -29,5 +29,15 @@ export class ThemeService {
       // trigger refresh of UI
       this.ref.tick();
     });
+  }
+
+  isDarkModeSelected(): boolean {
+    return this.userSelectedTheme.value ? this.userSelectedTheme.value == 'dark-theme' : this.defaultOSTheme.value == 'dark-theme'
+  }
+
+  setUserSelectedTheme(darkMode: boolean): void {
+    const theme = darkMode ? 'dark-theme' : 'light-theme';
+    this.userSelectedTheme.next(theme);
+    localStorage.setItem("userSelectedTheme", theme);
   }
 }
