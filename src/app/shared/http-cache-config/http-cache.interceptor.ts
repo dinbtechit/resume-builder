@@ -22,7 +22,14 @@ export class HttpCacheInterceptor implements HttpInterceptor {
     const {cached, id} = request.context.get(CACHE_REQUEST);
 
     if (cached) {
-      const cachedResponse = this.cacheService.get(request) || null;
+      let cachedResponse = null;
+      try {
+        cachedResponse = this.cacheService.get(request);
+      } catch (e) {
+          console.warn(`HTTP Request - ${id} - Unable to parse response from localstorage. Evicting item from storage`);
+          this.cacheService.remove(request);
+      }
+
       if (cachedResponse) {
         console.log(`HTTP Request - ${id} - Response retrieved from local Cache`);
         return of(cachedResponse);

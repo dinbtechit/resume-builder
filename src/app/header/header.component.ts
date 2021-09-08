@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemeService } from "../shared/service/theme.service";
 import { FormControl } from "@angular/forms";
 

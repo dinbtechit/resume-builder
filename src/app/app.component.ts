@@ -1,8 +1,6 @@
 import { Component, HostBinding, OnDestroy } from '@angular/core';
-import { ThemeService } from "./shared/service/theme.service";
-import { HeaderComponent } from "./header/header.component";
-import { combineLatest, forkJoin, Observable } from "rxjs";
-import { take } from "rxjs/operators";
+import { ThemeService } from './shared/service/theme.service';
+import { combineLatest} from "rxjs";
 
 @Component({
   selector: 'app-root',
