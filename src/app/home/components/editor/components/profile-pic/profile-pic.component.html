@@ -1,13 +1,14 @@
 <div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
-<label class="profile-pic mat-elevation-z5" for="fileInput">
-  <img alt="upload profile picture"
-       [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
-  <span class="hover-text">Choose file</span>
-  <span class="background"></span>
-</label>
-<input id="fileInput" type='file' accept="image/*" (change)="onSelectFile($event)">
-<button mat-raised-button *ngIf="url" (click)="delete()"
-        class="mt-2 small">
-  <mat-icon>delete</mat-icon> Delete
-</button>
+  <label class="profile-pic mat-elevation-z5" for="fileInput">
+    <img alt="upload profile picture"
+         [src]="url ? url : 'https://www.w3schools.com/w3images/avatar6.png'">
+    <span class="hover-text">Choose file</span>
+    <span class="background"></span>
+  </label>
+  <input id="fileInput" type='file' accept="image/*" (change)="onSelectFile($event)" [(ngModel)]="imageName">
+  <button mat-raised-button *ngIf="url" (click)="delete()"
+          class="mt-2 small">
+    <mat-icon>delete</mat-icon>
+    Delete
+  </button>
 </div>

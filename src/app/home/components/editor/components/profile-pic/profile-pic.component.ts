@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePicComponent implements OnInit {
 
-  url: string | null = '';
+  url: string | ArrayBuffer | null | undefined = '';
+  imageName = "";
 
   constructor() {
   }
@@ -15,30 +16,30 @@ export class ProfilePicComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSelectFile(event: any): Promise<void> {
-    await this.uploadImage(event);
-  }
+  onSelectFile(event: any): void {
 
-  uploadImage(event: any): void {
+    const mimeType = event.target.files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      console.error("Only images are supported");
+      return;
+    }
+
     const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
     reader.onload = (event: ProgressEvent<FileReader>) => {
       // called once readAsDataURL is completed
-      this.url = event.target?.result?.toString() || "";
+      this.url = reader.result || "";
     };
 
     reader.onerror = (event: ProgressEvent<FileReader>) => {
       console.error(`Invalid Image File: ${event.target?.result}`);
     };
-
-    if (event.target?.files[0]) {
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-    } else {
-      console.error(`Invalid Image File: ${event.target}`);
-    }
   }
 
   public delete(): void {
-    this.url = null;
+    this.url = "";
+    this.imageName = "";
   }
 
 }
