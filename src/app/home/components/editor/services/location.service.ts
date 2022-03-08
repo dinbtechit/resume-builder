@@ -4,7 +4,7 @@ import {
   HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { LocationDetails } from "../model/location";
-import { catchError, tap } from "rxjs/operators";
+import { catchError, map, tap } from 'rxjs/operators';
 import { CACHE_REQUEST } from '../../../../shared/http-cache-config/cache';
 
 @Injectable({

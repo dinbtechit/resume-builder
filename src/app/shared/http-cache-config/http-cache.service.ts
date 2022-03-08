@@ -14,11 +14,7 @@ export abstract class HttpCache {
 })
 export class HttpCacheService implements HttpCache {
 
-
-  constructor() {
-  }
-
-  get(req: HttpRequest<any>): HttpResponse<any> | null {
+    get(req: HttpRequest<any>): HttpResponse<any> | null {
     return localStorage.getItem(req.urlWithParams) ?
       new HttpResponse<any>(JSON.parse(localStorage.getItem(req.urlWithParams) || ''))
       : null;
