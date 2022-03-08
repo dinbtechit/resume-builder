@@ -4,7 +4,7 @@ This app lets users build their resume quickly yet has the potential to unleash 
 
 ##Preview
 
-![](/u1/code/personal/resume-builder/doc/resume-builder-preview.gif)
+![](./doc/resume-builder-preview.gif)
 
 
 # Change Log:
